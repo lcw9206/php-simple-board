@@ -8,5 +8,8 @@
 		exit;
 	}
 
+	$conn = mysqli_connect('127.0.0.1', 'devs', 'devs', 'test_db');
+	
+	print_r($conn)
 ?>
 
