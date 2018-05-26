@@ -17,7 +17,7 @@
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="status"> 비공개
+          <input type="checkbox" name="is_secret" value="Y"> 비공개
         </label>
       </div>
     </div>
