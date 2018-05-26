@@ -1,41 +1,32 @@
 <?php 
 	require_once ('_header.php'); 
 	require_once ('_db_conn.php');
-?>
 
-		
-		<div class="bs-example" data-example-id="simple-table">
-		   <table class="table">
-		      	<caption>Optional table caption.</caption>
+	$sql = "SELECT * FROM posts";
+
+	$result = mysqli_query($link, $sql);
+?>
+	<div class="bs-example" data-example-id="simple-table">
+		   	<table class="table">
 		      	<thead>
 		        	<tr>
-			            <th class="text-center">#</th>
-			            <th>First Name</th>
-			            <th>Last Name</th>
-			            <th>Username</th>
-			         </tr>
+			            <th>번호</th>
+			            <th>제목</th>
+			            <th>내용</th>
+			            <th>생성일</th>
+			        </tr>
 		      	</thead>
 		      	<tbody>
-			         <tr>
-			            <th scope="row">1</th>
-			            <td>Mark</td>
-			            <td>Otto</td>
-			            <td>@mdo</td>
-			         </tr>
-			         <tr>
-			            <th scope="row">2</th>
-			            <td>Jacob</td>
-			            <td>Thornton</td>
-			            <td>@fat</td>
-			         </tr>
-			         <tr>
-			            <th scope="row">3</th>
-			            <td>Larry</td>
-			            <td>the Bird</td>
-			            <td>@twitter</td>
-			         </tr>
+		      		<?php while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) : ?>
+			        <tr>
+			            <td><?=$row['no']?></td>
+			            <td><?=$row['title']?></td>
+			            <td><?=$row['content']?></td>
+			            <td><?=$row['created']?></td>
+			        </tr>
+			     	<?php endwhile; ?>
 		    	</tbody>
-		   </table>
+		   	</table>
 	   	<div>
 	   		<a href="/board/write.php" class='btn btn-primary'>글쓰기</a>
 	   	</div>
