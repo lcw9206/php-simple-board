@@ -1,3 +1,14 @@
+<!-- DB 데이터 가져오기 -->
+<?php
+
+
+?>
+
+
+
+
+
+<!-- 화면 출력 -->
 <?php require_once ('_header.php'); ?>
 
 <form class="form-horizontal" method="post" action="/board/do_write.php">

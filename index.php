@@ -1,4 +1,7 @@
-<?php require_once ('_header.php'); ?>
+<?php 
+	require_once ('_header.php'); 
+	require_once ('_db_conn.php');
+?>
 
 		
 		<div class="bs-example" data-example-id="simple-table">

@@ -1,4 +1,6 @@
 <?php 
+	require_once ('_db_conn.php');
+	
 	echo "<pre>";
 	print_r($_POST['title']);
 	echo "</pre>";
@@ -7,8 +9,6 @@
 		echo "제목을 입력해주세요.";
 		exit;
 	}
-
-	$link = mysqli_connect('127.0.0.1', 'devs', 'devs', 'test_db');
 	
 	$sql = "INSERT INTO posts VALUES(null, '".$_POST['title']."', '".$_POST['content']."', '".$_POST['is_secret']."', NOW())";
 
