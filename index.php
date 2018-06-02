@@ -15,6 +15,7 @@
 	            <th>제목</th>
 	            <th>내용</th>
 	            <th>생성일</th>
+	            <th></th>
 	        </tr>
       	</thead>
       	<tbody>
@@ -24,6 +25,7 @@
 	            <td><a href="/board/view.php?no=<?=$row['no']?>"><?=$row['title']?></a></td>
 	            <td><?=$row['content']?></td>
 	            <td><?=$row['created']?></td>
+	            <td><a href="/board/write.php?no=<?=$row['no']?>" class="btn btn-primary btn-sm">수정</td>
 	        </tr>
 	     	<?php endwhile; ?>
     	</tbody>

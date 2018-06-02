@@ -1,31 +1,44 @@
+<?php
+  require_once ('_header.php');
+  require_once ('_db_conn.php');
+
+  $no = $_GET['no'];
+
+  $sql = "SELECT * FROM posts WHERE no = " . $no;
+
+  $result = mysqli_query($link, $sql);
+
+  $post = mysqli_fetch_array($result, MYSQLI_ASSOC);
+?>
+
 <!-- 화면 출력 -->
-<?php require_once ('_header.php'); ?>
 
 <form class="form-horizontal" method="post" action="/board/do_write.php">
+  <input type="hidden" name="no" value="<?=$post['no']?>">
   <div class="form-group">
     <label class="col-sm-2 control-label">제목</label>
     <div class="col-sm-10">
-      <input type="text" class="form-control" name="title" placeholder="제목">
+      <input type="text" class="form-control" name="title" placeholder="제목" value="<?=$post['title']?>">
     </div>
   </div>
   <div class="form-group">
     <label class="col-sm-2 control-label">내용</label>
     <div class="col-sm-10">
-      <textarea class="form-control" name="content" rows="8"></textarea>
+      <textarea class="form-control" name="content" rows="8"><?=$post['content']?></textarea>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
         <label>
-          <input type="checkbox" name="is_secret" value="Y"> 비공개
+          <input type="checkbox" name="is_secret" value="Y" <?=$post['is_secret']=='Y'?'checked=':''?>>비공개
         </label>
       </div>
     </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">작성</button>
+      <button type="submit" class="btn btn-default"><?=$post['no']?'수정하기':'작성'?></button>
     </div>
   </div>
 </form>
